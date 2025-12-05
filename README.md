@@ -4,7 +4,7 @@ A Model Context Protocol (MCP) server that provides powerful tools for analyzing
 
 ## Features
 
-### Tools Available
+### Core Tools
 
 | Tool | Description |
 |------|-------------|
@@ -16,6 +16,19 @@ A Model Context Protocol (MCP) server that provides powerful tools for analyzing
 | `group_aggregate` | Group data and compute aggregations (sum, mean, count, etc.) |
 | `query_sqlite` | Execute SQL queries on SQLite databases |
 | `list_tables` | List all tables and schemas in a SQLite database |
+
+### Advanced Analytics Tools (NEW!)
+
+| Tool | Description |
+|------|-------------|
+| `create_pivot_table` | Create Excel-style pivot tables with flexible aggregations |
+| `data_quality_report` | Comprehensive data quality assessment with scores and recommendations |
+| `analyze_time_series` | Time series analysis with trends, seasonality, and moving averages |
+| `generate_chart` | Create visualizations (bar, line, scatter, histogram, pie, box plots) |
+| `merge_datasets` | Join/merge two datasets together (inner, left, right, outer joins) |
+| `statistical_test` | Hypothesis testing (t-test, ANOVA, chi-squared, correlation tests) |
+| `auto_insights` | Automatically discover interesting patterns and insights |
+| `export_data` | Export filtered/transformed data to new CSV files |
 
 ## Installation
 
@@ -80,6 +93,8 @@ mcp-tabular
 4. **Test it** by asking Claude: "Describe the dataset in data/sample_sales.csv"
 
 📖 **For detailed instructions and troubleshooting**, see [CONNECT_TO_CLAUDE_DESKTOP.md](CONNECT_TO_CLAUDE_DESKTOP.md)
+
+📝 **For example prompts to try**, see [TEST_PROMPTS.md](TEST_PROMPTS.md)
 
 ### Sample Data
 
@@ -195,6 +210,117 @@ Explore SQLite database structure:
 
 ```
 list_tables(db_path="data/sample.db")
+```
+
+## Advanced Analytics Examples
+
+### Create Pivot Table
+
+Create Excel-style pivot tables for business analysis:
+
+```
+create_pivot_table(
+    file_path="data/sample_sales.csv",
+    index=["region"],
+    columns=["category"],
+    values="total_sales",
+    aggfunc="sum"
+)
+```
+
+### Data Quality Report
+
+Get a comprehensive quality assessment before analysis:
+
+```
+data_quality_report(file_path="data/sample_sales.csv")
+```
+
+Returns completeness score, duplicate detection, outlier analysis, and an overall quality grade (A-F).
+
+### Time Series Analysis
+
+Analyze trends and seasonality in time-based data:
+
+```
+analyze_time_series(
+    file_path="data/sample_sales.csv",
+    date_column="order_date",
+    value_column="total_sales",
+    freq="M",
+    include_forecast=True
+)
+```
+
+### Generate Charts
+
+Create visualizations returned as base64 images:
+
+```
+generate_chart(
+    file_path="data/sample_sales.csv",
+    chart_type="bar",
+    x_column="category",
+    y_column="total_sales",
+    title="Sales by Category"
+)
+```
+
+Supported chart types: `bar`, `line`, `scatter`, `histogram`, `pie`, `box`
+
+### Merge Datasets
+
+Combine data from multiple sources:
+
+```
+merge_datasets(
+    file_path_left="data/orders.csv",
+    file_path_right="data/customers.csv",
+    on=["customer_id"],
+    how="left"
+)
+```
+
+### Statistical Testing
+
+Perform hypothesis tests for data science:
+
+```
+statistical_test(
+    file_path="data/sample_sales.csv",
+    test_type="ttest_ind",
+    column1="total_sales",
+    group_column="region",
+    alpha=0.05
+)
+```
+
+Supported tests: `ttest_ind`, `ttest_paired`, `chi_squared`, `anova`, `mann_whitney`, `pearson`, `spearman`
+
+### Auto Insights
+
+Automatically discover interesting patterns:
+
+```
+auto_insights(file_path="data/sample_sales.csv")
+```
+
+Returns insights about correlations, outliers, skewed distributions, missing data, and more.
+
+### Export Data
+
+Export filtered data to a new CSV:
+
+```
+export_data(
+    file_path="data/sample_sales.csv",
+    output_name="electronics_sales",
+    filter_column="category",
+    filter_operator="eq",
+    filter_value="Electronics",
+    sort_by="total_sales",
+    sort_ascending=False
+)
 ```
 
 ## Development

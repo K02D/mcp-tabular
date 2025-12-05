@@ -1,0 +1,17 @@
+date,product,category,quantity,unit_price,total_sales,region,customer_age
+2024-01-13,Widget C,Electronics,500,14.99,7495.0,North,27
+2024-01-08,Widget A,Electronics,25,29.99,749.75,West,33
+2024-01-17,Widget B,Electronics,14,49.99,699.86,South,46
+2024-01-10,Widget C,Electronics,45,14.99,674.55,East,31
+2024-01-18,Widget C,Electronics,42,14.99,629.58,West,30
+2024-01-11,Widget A,Electronics,20,29.99,599.8,North,36
+2024-01-17,Widget A,Electronics,19,29.99,569.81,North,37
+2024-01-14,Widget B,Electronics,11,49.99,549.89,West,42
+2024-01-15,Widget C,Electronics,35,14.99,524.65,South,32
+2024-01-09,Widget B,Electronics,10,49.99,499.9,North,47
+2024-01-14,Widget A,Electronics,16,29.99,479.84,East,35
+2024-01-05,Widget A,Electronics,15,29.99,449.85,North,34
+2024-01-07,Widget C,Electronics,30,14.99,449.7,South,29
+2024-01-05,Widget B,Electronics,8,49.99,399.92,South,28
+2024-01-06,Widget A,Electronics,12,29.99,359.88,West,52
+2024-01-11,Widget B,Electronics,6,49.99,299.94,South,44

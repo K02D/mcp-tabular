@@ -1,7 +1,7 @@
 [project]
 name = "mcp-tabular"
-version = "0.1.0"
-description = "MCP server for tabular data analysis - describe datasets, detect anomalies, compute correlations, and filter rows"
+version = "0.2.0"
+description = "MCP server for tabular data analysis - describe datasets, detect anomalies, correlations, pivot tables, charts, time series, and more"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
@@ -9,6 +9,7 @@ dependencies = [
     "pandas>=2.0.0",
     "numpy>=1.24.0",
     "scipy>=1.10.0",
+    "matplotlib>=3.7.0",
 ]
 
 [project.optional-dependencies]
