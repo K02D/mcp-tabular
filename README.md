@@ -1,6 +1,6 @@
 # MCP Tabular Data Analysis Server
 
-A Model Context Protocol (MCP) server that provides powerful tools for analyzing numeric and tabular data. Works with CSV files and SQLite databases.
+A Model Context Protocol (MCP) server that provides tools for analyzing numeric and tabular data. Works with CSV files and SQLite databases.
 
 ## Features
 
@@ -9,7 +9,7 @@ A Model Context Protocol (MCP) server that provides powerful tools for analyzing
 | Tool | Description |
 |------|-------------|
 | `list_data_files` | List available CSV and SQLite files in the data directory |
-| `describe_dataset` | Generate comprehensive statistics for a dataset (shape, types, distributions, missing values) |
+| `describe_dataset` | Generate statistics for a dataset (shape, types, distributions, missing values) |
 | `detect_anomalies` | Find outliers using Z-score or IQR methods |
 | `compute_correlation` | Calculate correlation matrices between numeric columns |
 | `filter_rows` | Filter data using various operators (eq, gt, lt, contains, etc.) |
@@ -17,17 +17,17 @@ A Model Context Protocol (MCP) server that provides powerful tools for analyzing
 | `query_sqlite` | Execute SQL queries on SQLite databases |
 | `list_tables` | List all tables and schemas in a SQLite database |
 
-### Advanced Analytics Tools (NEW!)
+### Analytics Tools
 
 | Tool | Description |
 |------|-------------|
 | `create_pivot_table` | Create Excel-style pivot tables with flexible aggregations |
-| `data_quality_report` | Comprehensive data quality assessment with scores and recommendations |
+| `data_quality_report` | Data quality assessment with scores and recommendations |
 | `analyze_time_series` | Time series analysis with trends, seasonality, and moving averages |
 | `generate_chart` | Create visualizations (bar, line, scatter, histogram, pie, box plots) |
 | `merge_datasets` | Join/merge two datasets together (inner, left, right, outer joins) |
 | `statistical_test` | Hypothesis testing (t-test, ANOVA, chi-squared, correlation tests) |
-| `auto_insights` | Automatically discover interesting patterns and insights |
+| `auto_insights` | Discover patterns and insights |
 | `export_data` | Export filtered/transformed data to new CSV files |
 
 ## Installation
@@ -65,14 +65,12 @@ mcp-tabular
 
 ### Configure with Claude Desktop
 
-**Quick Setup:**
-
-1. **Find your Claude Desktop config file:**
+1. Locate your Claude Desktop config file:
    - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
    - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
    - **Linux**: `~/.config/Claude/claude_desktop_config.json`
 
-2. **Add this configuration** (replace `/Users/kirondeb/mcp-tabular` with your actual path):
+2. Add this configuration (replace `/Users/kirondeb/mcp-tabular` with your actual path):
 
 ```json
 {
@@ -88,13 +86,13 @@ mcp-tabular
 }
 ```
 
-3. **Restart Claude Desktop completely** (quit and reopen)
+3. Restart Claude Desktop (quit and reopen)
 
-4. **Test it** by asking Claude: "Describe the dataset in data/sample_sales.csv"
+4. Test by asking Claude: "Describe the dataset in data/sample_sales.csv"
 
-📖 **For detailed instructions and troubleshooting**, see [CONNECT_TO_CLAUDE_DESKTOP.md](CONNECT_TO_CLAUDE_DESKTOP.md)
+See [CONNECT_TO_CLAUDE_DESKTOP.md](CONNECT_TO_CLAUDE_DESKTOP.md) for detailed instructions and troubleshooting.
 
-📝 **For example prompts to try**, see [TEST_PROMPTS.md](TEST_PROMPTS.md)
+See [TEST_PROMPTS.md](TEST_PROMPTS.md) for example prompts.
 
 ### Sample Data
 
@@ -111,32 +109,32 @@ python scripts/create_sample_db.py
 
 ## Path Resolution
 
-**Important:** All file paths are resolved relative to the project root directory. This means:
+All file paths are resolved relative to the project root directory:
 - Relative paths like `data/sample_sales.csv` work from any working directory
 - Absolute paths also work as expected
-- The server automatically resolves paths relative to where `mcp_tabular` is installed
+- Paths resolve relative to where `mcp_tabular` is installed
 
 ## Tool Examples
 
 ### List Data Files
 
-Discover available data files:
+List available data files:
 
 ```
 list_data_files()
 ```
 
-Returns all CSV and SQLite files in the data directory with metadata.
+Lists all CSV and SQLite files in the data directory with metadata.
 
 ### Describe Dataset
 
-Get comprehensive statistics about a dataset:
+Generate statistics for a dataset:
 
 ```
 describe_dataset(file_path="data/sample_sales.csv")
 ```
 
-Returns shape, column types, numeric statistics (mean, std, median, skew, kurtosis), categorical value counts, and a sample preview.
+Includes shape, column types, numeric statistics (mean, std, median, skew, kurtosis), categorical value counts, and a sample preview.
 
 ### Detect Anomalies
 
@@ -155,7 +153,7 @@ Supports `zscore` and `iqr` methods.
 
 ### Compute Correlation
 
-Analyze relationships between numeric columns:
+Calculate correlations between numeric columns:
 
 ```
 compute_correlation(
@@ -164,7 +162,7 @@ compute_correlation(
 )
 ```
 
-Returns full correlation matrix and top correlations ranked by strength.
+Includes full correlation matrix and top correlations ranked by strength.
 
 ### Filter Rows
 
@@ -206,7 +204,7 @@ query_sqlite(
 
 ### List Tables
 
-Explore SQLite database structure:
+List tables and schemas in a SQLite database:
 
 ```
 list_tables(db_path="data/sample.db")
@@ -216,7 +214,7 @@ list_tables(db_path="data/sample.db")
 
 ### Create Pivot Table
 
-Create Excel-style pivot tables for business analysis:
+Create Excel-style pivot tables:
 
 ```
 create_pivot_table(
@@ -230,17 +228,17 @@ create_pivot_table(
 
 ### Data Quality Report
 
-Get a comprehensive quality assessment before analysis:
+Generate a data quality assessment:
 
 ```
 data_quality_report(file_path="data/sample_sales.csv")
 ```
 
-Returns completeness score, duplicate detection, outlier analysis, and an overall quality grade (A-F).
+Includes completeness score, duplicate detection, outlier analysis, and an overall quality grade (A-F).
 
 ### Time Series Analysis
 
-Analyze trends and seasonality in time-based data:
+Analyze trends and seasonality:
 
 ```
 analyze_time_series(
@@ -254,7 +252,7 @@ analyze_time_series(
 
 ### Generate Charts
 
-Create visualizations returned as base64 images:
+Create visualizations (returned as base64 images):
 
 ```
 generate_chart(
@@ -270,7 +268,7 @@ Supported chart types: `bar`, `line`, `scatter`, `histogram`, `pie`, `box`
 
 ### Merge Datasets
 
-Combine data from multiple sources:
+Join or merge two datasets:
 
 ```
 merge_datasets(
@@ -283,7 +281,7 @@ merge_datasets(
 
 ### Statistical Testing
 
-Perform hypothesis tests for data science:
+Run hypothesis tests:
 
 ```
 statistical_test(
@@ -299,13 +297,13 @@ Supported tests: `ttest_ind`, `ttest_paired`, `chi_squared`, `anova`, `mann_whit
 
 ### Auto Insights
 
-Automatically discover interesting patterns:
+Discover patterns and insights:
 
 ```
 auto_insights(file_path="data/sample_sales.csv")
 ```
 
-Returns insights about correlations, outliers, skewed distributions, missing data, and more.
+Includes insights about correlations, outliers, skewed distributions, missing data, and more.
 
 ### Export Data
 
