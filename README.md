@@ -2,6 +2,22 @@
 
 A Model Context Protocol (MCP) server that provides tools for analyzing numeric and tabular data. Works with CSV files and SQLite databases.
 
+## Demo
+
+### auto_insights 
+<img width="656" height="815" alt="image" src="https://github.com/user-attachments/assets/5555e251-55b8-464e-9c92-91f9059a5d0f" />
+
+### data_quality_report
+<img width="854" height="856" alt="image" src="https://github.com/user-attachments/assets/bb7fcc7f-35a6-4fb2-8b35-5eafd6ce782b" />
+
+
+### generate_chart
+
+
+### analyze_time_series
+<img width="600" height="873" alt="image" src="https://github.com/user-attachments/assets/3e5a3c75-0f8d-4f6e-b745-a1e4b33cf809" />
+
+
 ## Features
 
 ### Core Tools
